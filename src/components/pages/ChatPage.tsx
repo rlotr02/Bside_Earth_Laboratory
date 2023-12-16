@@ -413,10 +413,10 @@ const Header = styled.div`
 
 const ChatContainer = styled.div<{ $close: boolean }>`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   padding-bottom: 20px;
-  //margin-top: 45.25px;
+  margin-top: 45.25px;
   margin-bottom: ${props => (props.$close ? 180 : 0)}px;
   flex-direction: column;
   align-items: center;
