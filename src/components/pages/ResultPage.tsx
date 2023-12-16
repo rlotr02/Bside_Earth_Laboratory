@@ -50,7 +50,6 @@ const ResultPage: React.FC = () => {
           stream: !result.done,
         });
         data += chunk;
-        console.log(chunk);
 
         const modifiedData = data
           .replaceAll('data:', '')
