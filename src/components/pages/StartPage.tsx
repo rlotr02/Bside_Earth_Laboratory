@@ -11,27 +11,39 @@ const StartPage: React.FC = () => {
 
   return (
     <Container>
-      <Logo style={{ marginTop: 163.19 }} />
-      <Button
-        style={{ marginTop: 273.93, zIndex: 1, position: 'relative' }}
-        onClick={() => navigate('/set-name')}
-      >
-        실험실 입장하기
-      </Button>
-      <TreeDiv>
-        <Tree1 className="tree1" />
-        <Tree2 className="tree2" />
-      </TreeDiv>
+      <Center>
+        <Logo />
+        <Button
+          style={{ marginTop: 270, zIndex: 1, position: 'relative' }}
+          onClick={() => navigate('/set-name')}
+        >
+          실험실 입장하기
+        </Button>
+        <TreeDiv>
+          <Tree1 className="tree1" />
+          <Tree2 className="tree2" />
+        </TreeDiv>
+      </Center>
     </Container>
   );
 };
 
 export default StartPage;
 
+const Center = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+`;
+
 const TreeDiv = styled.div`
   display: flex;
   position: relative;
-  top: 44.27px;
+  top: 40px;
   width: 100%;
 
   svg {
