@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Button, Container } from '../../App.style';
 import { ReactComponent as Earth } from '../../images/Earth.svg';
 import { ReactComponent as EarthHand } from '../../images/EarthHand.svg';
@@ -10,8 +10,16 @@ import axios from 'axios';
 const ResultPage: React.FC = () => {
   const navigate = useNavigate();
   const { state } = useLocation(); //name, animal, act 가져옴
+  const resultRef = useRef<HTMLDivElement | null>(null);
   const [result, setResult] = useState<string[]>([]);
   const [image, setImage] = useState('');
+
+  useEffect(() => {
+    if (resultRef.current) {
+      const { scrollHeight } = resultRef.current;
+      resultRef.current.scrollTop = scrollHeight;
+    }
+  }, [result]);
 
   useEffect(() => {
     fetch('https://port-0-earthers-iad5e2alq52x1o6.sel4.cloudtype.app/chat/3', {
@@ -42,6 +50,7 @@ const ResultPage: React.FC = () => {
           stream: !result.done,
         });
         data += chunk;
+        console.log(chunk);
 
         const modifiedData = data
           .replaceAll('data:', '')
@@ -77,7 +86,7 @@ const ResultPage: React.FC = () => {
         <EarthHand className="earthHand" />
         <ResultContainer>
           <ResultSN>실험 결과</ResultSN>
-          <ResultScroll>
+          <ResultScroll ref={resultRef}>
             {image !== '' ? (
               <img src={image} alt={state.animal} />
             ) : (
@@ -159,7 +168,7 @@ const ResultSN = styled.div`
 
 const ResultScroll = styled.div`
   width: 100%;
-  height: 63vh; //height: 500px;
+  height: 58vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -173,6 +182,8 @@ const ResultScroll = styled.div`
   img {
     width: auto;
     height: 143.765px;
+    border-radius: 9.615px;
+    border: 1.923px solid #d0d0d0;
   }
 `;
 
@@ -180,7 +191,7 @@ const ResultParcent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 9.94px;
+  margin-bottom: 12px;
 
   .text1 {
     color: #0d6abf;
@@ -197,5 +208,6 @@ const ResultParcent = styled.div`
 const ResultText = styled.div`
   color: #333;
   font: var(--result-m-font);
-  padding: 10px 19.3px;
+  padding: 10px 28px;
+  white-space: pre-line;
 `;
