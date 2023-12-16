@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const AppContainer = styled.div`
   margin: 0 auto;
-  max-width: 375px;
-  height: 100vh;
+  max-width: 390px;
+  min-height: 100vh;
   background-color: var(--bg-color);
 `;
 
