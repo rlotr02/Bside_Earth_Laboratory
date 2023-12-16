@@ -39,7 +39,7 @@ export const ChatInputContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 305.5px;
+  width: 315px;
   height: 48px;
   padding: 7.692px 11.538px;
   justify-content: center;
@@ -56,7 +56,7 @@ export const Button = styled.button`
 `;
 
 export const Input = styled.input`
-  width: 305.5px;
+  width: 315px;
   height: 48.077px;
   padding: 0px 11.538px;
   border-radius: 9.615px;

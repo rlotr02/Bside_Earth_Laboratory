@@ -318,7 +318,7 @@ const ChatPage: React.FC = () => {
             <span
               className="placeholder-text"
               style={{
-                width: 280,
+                width: 284,
                 overflow: 'hidden',
                 textAlign: 'left',
                 whiteSpace: 'nowrap',
@@ -541,7 +541,7 @@ const InputContainer = styled.div<{ $close: boolean }>`
   .placeholder-text {
     position: absolute;
     z-index: 1;
-    left: 53px;
+    left: 50px;
     top: 53px;
     font: var(--input-font);
   }

@@ -98,7 +98,7 @@ const ResultPage: React.FC = () => {
             <ResultText>{result}</ResultText>
           </ResultScroll>
           <Button
-            style={{ position: 'absolute', bottom: -70 }}
+            style={{ position: 'absolute', bottom: -65 }}
             onClick={() => navigate('/')}
           >
             재실험하기
