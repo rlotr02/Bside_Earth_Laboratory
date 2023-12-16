@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { AppContainer } from './App.style';
+import StartPage from './components/pages/StartPage';
+import SetNamePage from './components/pages/SetNamePage';
+import ChatPage from './components/pages/ChatPage';
+import ResultPage from './components/pages/ResultPage';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<StartPage />} />
+          <Route path="/set-name" element={<SetNamePage />} />
+          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/result" element={<ResultPage />} />
+        </Routes>
+      </BrowserRouter>
+    </AppContainer>
   );
-}
+};
 
 export default App;
