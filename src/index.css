@@ -10,13 +10,13 @@
   --text-color: #505050;
   --text-emphasize: #f11d1d;
   --text-click: #000;
-  --button-font: 500 15.385px / normal SUIT-Regular;
-  --input-font: 400 11.541px / 160% SUIT-Regular;
-  --chat-font: 600 11.541px / 150% SUIT-Regular;
-  --result-s-font: 600 11.028px / 150% SUIT-Regular;
-  --result-m-font: 600 11.541px / 150% SUIT-Regular;
-  --result-l-font: 700 15.385px / 140% SUIT-Regular;
-  --result-xl-font: 700 19.596px / 140% SUIT-Regular;
+  --button-font: 600 15.385px / normal SUITE Variable;
+  --input-font: 400 11.541px / 160% SUITE Variable;
+  --chat-font: 600 11.541px / 150% SUITE Variable;
+  --result-s-font: 600 11.028px / 150% SUITE Variable;
+  --result-m-font: 600 11.541px / 150% SUITE Variable;
+  --result-l-font: 700 15.385px / 140% SUITE Variable;
+  --result-xl-font: 700 19.596px / 140% SUITE Variable;
 }
 
 html,
@@ -141,10 +141,6 @@ li {
   list-style-type: none;
 }
 
-@font-face {
-  font-family: 'SUIT-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2')
-    format('woff2');
-  font-weight: normal;
-  font-style: normal;
+body {
+  font-family: 'SUITE Variable', sans-serif;
 }

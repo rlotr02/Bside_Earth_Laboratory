@@ -32,12 +32,6 @@ const ChatPage: React.FC = () => {
   };
 
   useEffect(() => {
-    window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
-    };
-  }, []);
-
-  useEffect(() => {
     if (chatContainerRef.current) {
       const { scrollHeight } = chatContainerRef.current;
       chatContainerRef.current.scrollTop = scrollHeight;
@@ -226,7 +220,7 @@ const ChatPage: React.FC = () => {
           <li>
             <Name>
               <EarthS />
-              <p>네이버클로바 교수</p>
+              <p>네이클로바 교수</p>
             </Name>
             <ChatTime>
               <Chating>
@@ -241,7 +235,7 @@ const ChatPage: React.FC = () => {
           </li>
           <li>
             <UserChat
-              $width={width ? 230 : 120}
+              $width={width ? 230 : 100}
               style={{
                 display:
                   messageOrder === 2 || fixedMessage[0] ? 'flex' : 'none',
@@ -259,7 +253,7 @@ const ChatPage: React.FC = () => {
             >
               <Name>
                 <EarthS />
-                <p>네이버클로바 교수</p>
+                <p>네이클로바 교수</p>
               </Name>
               <ChatTime>
                 <Chating>
