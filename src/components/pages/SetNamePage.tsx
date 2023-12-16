@@ -10,6 +10,10 @@ const SetNamePage: React.FC = () => {
   const MAX_LENGTH = 5;
   const navigate = useNavigate();
 
+  window.onload = function () {
+    window.scrollTo(0, document.body.scrollHeight);
+  };
+
   const onInputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.value.length > MAX_LENGTH) {
       event.target.value = event.target.value.slice(0, MAX_LENGTH);

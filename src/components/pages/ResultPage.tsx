@@ -15,6 +15,12 @@ const ResultPage: React.FC = () => {
   const [image, setImage] = useState('');
 
   useEffect(() => {
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+  }, []);
+
+  useEffect(() => {
     if (resultRef.current) {
       const { scrollHeight } = resultRef.current;
       resultRef.current.scrollTop = scrollHeight;
