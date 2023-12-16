@@ -32,6 +32,12 @@ const ChatPage: React.FC = () => {
   };
 
   useEffect(() => {
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
+  }, []);
+
+  useEffect(() => {
     if (chatContainerRef.current) {
       const { scrollHeight } = chatContainerRef.current;
       chatContainerRef.current.scrollTop = scrollHeight;
@@ -407,10 +413,10 @@ const Header = styled.div`
 
 const ChatContainer = styled.div<{ $close: boolean }>`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   padding-bottom: 20px;
-  margin-top: 45.25px;
+  //margin-top: 45.25px;
   margin-bottom: ${props => (props.$close ? 180 : 0)}px;
   flex-direction: column;
   align-items: center;
