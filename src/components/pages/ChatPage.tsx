@@ -373,7 +373,6 @@ const ChatContainer = styled.div<{ $close: boolean }>`
   height: 100%;
   display: flex;
   margin-top: 45.25px;
-  background-color: black;
   margin-bottom: ${props => (props.$close ? 200 : 0)}px;
   flex-direction: column;
   align-items: center;
