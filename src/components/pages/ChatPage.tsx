@@ -478,7 +478,7 @@ const UserChat = styled.div<{ $width: number }>`
 `;
 
 const InputContainer = styled.div<{ $close: boolean }>`
-  width: 375px;
+  width: 390px;
   height: 188.792px;
   border-radius: 27.125px 27.125px 0px 0px;
   border-top: 1.923px solid #d0d0d0;
