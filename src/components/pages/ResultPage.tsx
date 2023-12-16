@@ -5,11 +5,13 @@ import { ReactComponent as EarthHand } from '../../images/EarthHand.svg';
 import styled from 'styled-components';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Animal from '../../images/Animal.png';
+import axios from 'axios';
 
 const ResultPage: React.FC = () => {
   const navigate = useNavigate();
   const { state } = useLocation(); //name, animal, act 가져옴
   const [result, setResult] = useState<string[]>([]);
+  const [image, setImage] = useState('');
 
   useEffect(() => {
     fetch('https://port-0-earthers-iad5e2alq52x1o6.sel4.cloudtype.app/chat/3', {
@@ -23,6 +25,7 @@ const ResultPage: React.FC = () => {
         act: state.act,
       }),
     }).then(response => {
+      imageSrc();
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const reader = response.body!.getReader();
       const decoder = new TextDecoder();
@@ -56,6 +59,17 @@ const ResultPage: React.FC = () => {
     });
   }, []);
 
+  const imageSrc = () => {
+    axios
+      .post(
+        'https://port-0-earthers-iad5e2alq52x1o6.sel4.cloudtype.app/image',
+        { content: state.animal },
+      )
+      .then(response => {
+        setImage(response.data[0].content);
+      });
+  };
+
   return (
     <Container>
       <UnderDiv>
@@ -64,7 +78,11 @@ const ResultPage: React.FC = () => {
         <ResultContainer>
           <ResultSN>실험 결과</ResultSN>
           <ResultScroll>
-            <img src={Animal} alt="Animal" />
+            {image !== '' ? (
+              <img src={image} alt={state.animal} />
+            ) : (
+              <img src={Animal} alt={state.animal} />
+            )}
             <ResultParcent>
               <p className="text1">{state.animal}</p>
               <p className="text2">살릴 확률</p>
@@ -144,7 +162,7 @@ const ResultScroll = styled.div`
   }
 
   img {
-    width: 143.765px;
+    width: auto;
     height: 143.765px;
   }
 `;

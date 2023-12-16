@@ -8,7 +8,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const ChatPage: React.FC = () => {
   const { state } = useLocation(); //name 가져옴
   const navigate = useNavigate();
-  const chatContainerRef = useRef<HTMLUListElement>(null); //채팅창 스크롤 조절을 위한 ref
+  const chatContainerRef = useRef<HTMLDivElement | null>(null); //채팅창 스크롤 조절을 위한 ref
   const [isFocused, setIsFocused] = useState(false);
   const [animal, setAnimal] = useState('');
   const [how, setHow] = useState('');
@@ -30,6 +30,13 @@ const ChatPage: React.FC = () => {
     const ampm = today.getHours() >= 12 ? 'PM' : 'AM';
     setTime(`${hours}:${minutes} ${ampm}`);
   };
+
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      const { scrollHeight } = chatContainerRef.current;
+      chatContainerRef.current.scrollTop = scrollHeight;
+    }
+  }, [messageOrder, message1, message2, message3]);
 
   useEffect(() => {
     if (messageOrder === 1) {
@@ -208,8 +215,8 @@ const ChatPage: React.FC = () => {
   return (
     <Container style={{ height: '100vh', background: 'var(--chat-bg-color)' }}>
       <Header>지구 실험단</Header>
-      <ChatContainer $close={bottom}>
-        <ul className={cx('feed')} ref={chatContainerRef}>
+      <ChatContainer $close={bottom} ref={chatContainerRef}>
+        <ul className={cx('feed')}>
           <li>
             <Name>
               <EarthS />
@@ -221,6 +228,8 @@ const ChatPage: React.FC = () => {
                 <span>{time}</span>
               </Chating>
             </ChatTime>
+          </li>
+          <li>
             <UserChat
               $width={width ? 230 : 25}
               style={{
@@ -230,6 +239,8 @@ const ChatPage: React.FC = () => {
             >
               {message2}
             </UserChat>
+          </li>
+          <li>
             <div
               style={{
                 display:
@@ -290,7 +301,7 @@ const ChatPage: React.FC = () => {
             <span
               className="placeholder-text"
               style={{
-                width: 278,
+                width: 280,
                 overflow: 'hidden',
                 textAlign: 'left',
                 whiteSpace: 'nowrap',
@@ -372,8 +383,9 @@ const ChatContainer = styled.div<{ $close: boolean }>`
   width: 100%;
   height: 100%;
   display: flex;
+  padding-bottom: 20px;
   margin-top: 45.25px;
-  margin-bottom: ${props => (props.$close ? 200 : 0)}px;
+  margin-bottom: ${props => (props.$close ? 180 : 0)}px;
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
@@ -503,7 +515,7 @@ const InputContainer = styled.div<{ $close: boolean }>`
   .placeholder-text {
     position: absolute;
     z-index: 1;
-    left: 47px;
+    left: 53px;
     top: 53px;
     font: var(--input-font);
   }
