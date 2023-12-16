@@ -20,6 +20,7 @@ const ChatPage: React.FC = () => {
   const [fixedMessage, setFixedMessage] = useState([false, false]); //메시지 고정 여부(2번, 3번 메시지)
   const [width, setWidth] = useState(false);
   const [time, setTime] = useState('');
+  const [bottom, setBottom] = useState(false);
 
   const Time = () => {
     const today = new Date();
@@ -131,6 +132,7 @@ const ChatPage: React.FC = () => {
         .then(() => {
           setTimeout(() => {
             setFixedMessage([true, false]);
+            setBottom(true);
             setMessageOrder(3);
           }, 2000);
         });
@@ -183,6 +185,7 @@ const ChatPage: React.FC = () => {
         .then(() => {
           setTimeout(() => {
             setFixedMessage([true, true]);
+            setBottom(true);
             setMessageOrder(5);
             setIsFocused(false);
           }, 2000);
@@ -205,7 +208,7 @@ const ChatPage: React.FC = () => {
   return (
     <Container style={{ height: '100vh', background: 'var(--chat-bg-color)' }}>
       <Header>지구 실험단</Header>
-      <ChatContainer $close={nextBtn}>
+      <ChatContainer $close={bottom}>
         <ul className={cx('feed')} ref={chatContainerRef}>
           <li>
             <Name>
@@ -273,6 +276,7 @@ const ChatPage: React.FC = () => {
             onClick={() => {
               if (animal !== '') {
                 setNextBtn(true);
+                setBottom(false);
                 setMessageOrder(4);
               }
             }}
@@ -352,7 +356,7 @@ const fadeOut = keyframes`
 `;
 
 const Header = styled.div`
-  width: 375px;
+  width: 390px;
   height: 45.25px;
   background-color: var(--chat-header-color);
   font: var(--result-l-font);
@@ -369,7 +373,8 @@ const ChatContainer = styled.div<{ $close: boolean }>`
   height: 100%;
   display: flex;
   margin-top: 45.25px;
-  margin-bottom: ${props => (props.$close ? '205px' : '0px')};
+  background-color: black;
+  margin-bottom: ${props => (props.$close ? 200 : 0)}px;
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
