@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Button, Container } from '../../App.style';
 import { ReactComponent as Earth } from '../../images/Earth.svg';
 import { ReactComponent as EarthHand } from '../../images/EarthHand.svg';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Animal from '../../images/Animal.png';
+import Result from '../../images/Result.png';
 import axios from 'axios';
 
 const ResultPage: React.FC = () => {
@@ -62,7 +62,7 @@ const ResultPage: React.FC = () => {
   const imageSrc = () => {
     axios
       .post(
-        'https://port-0-earthers-iad5e2alq52x1o6.sel4.cloudtype.app/image',
+        'https://port-0-earthers-iad5e2alq52x1o6.sel4.cloudtype.app/image2',
         { content: state.animal },
       )
       .then(response => {
@@ -81,12 +81,11 @@ const ResultPage: React.FC = () => {
             {image !== '' ? (
               <img src={image} alt={state.animal} />
             ) : (
-              <img src={Animal} alt={state.animal} />
+              <img src={Result} alt={state.animal} />
             )}
             <ResultParcent>
               <p className="text1">{state.animal}</p>
-              <p className="text2">살릴 확률</p>
-              <p className="text3">90%</p>
+              <p className="text2">를 살릴 확률은?</p>
             </ResultParcent>
             <ResultText>{result}</ResultText>
           </ResultScroll>
@@ -103,6 +102,15 @@ const ResultPage: React.FC = () => {
 };
 
 export default ResultPage;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const UnderDiv = styled.div`
   display: flex;
@@ -156,6 +164,7 @@ const ResultScroll = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+  animation: ${fadeIn} 1s forwards;
 
   &::-webkit-scrollbar {
     display: none;
@@ -182,11 +191,6 @@ const ResultParcent = styled.div`
     color: var(--text-click);
     font: var(--result-s-font);
     padding: 0 2.76px;
-  }
-
-  .text3 {
-    color: #0dbf50;
-    font: var(--result-xl-font);
   }
 `;
 

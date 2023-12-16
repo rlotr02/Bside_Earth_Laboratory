@@ -224,20 +224,24 @@ const ChatPage: React.FC = () => {
             </Name>
             <ChatTime>
               <Chating>
-                <ChatingM>{message1}</ChatingM>
+                <ChatingM>
+                  {message1.length === 0
+                    ? '네이클로바 교수 메세지 입력중 ..'
+                    : message1}
+                </ChatingM>
                 <span>{time}</span>
               </Chating>
             </ChatTime>
           </li>
           <li>
             <UserChat
-              $width={width ? 230 : 25}
+              $width={width ? 230 : 100}
               style={{
                 display:
                   messageOrder === 2 || fixedMessage[0] ? 'flex' : 'none',
               }}
             >
-              {message2}
+              {message2.length === 0 ? '메세지 입력중 ..' : message2}
             </UserChat>
           </li>
           <li>
@@ -253,7 +257,11 @@ const ChatPage: React.FC = () => {
               </Name>
               <ChatTime>
                 <Chating>
-                  <ChatingM>{message3}</ChatingM>
+                  <ChatingM>
+                    {message3.length === 0
+                      ? '네이클로바 교수 메세지 입력중 ..'
+                      : message3}
+                  </ChatingM>
                   <span>{time}</span>
                 </Chating>
               </ChatTime>
@@ -278,6 +286,15 @@ const ChatPage: React.FC = () => {
             onBlur={event => {
               if (event.target.value === '') {
                 setIsFocused(false);
+              }
+            }}
+            onKeyDown={event => {
+              if (event.key === 'Enter') {
+                if (animal !== '') {
+                  setNextBtn(true);
+                  setBottom(false);
+                  setMessageOrder(4);
+                }
               }
             }}
             spellCheck={false}
@@ -320,6 +337,15 @@ const ChatPage: React.FC = () => {
             onBlur={event => {
               if (event.target.value === '') {
                 setIsFocused(false);
+              }
+            }}
+            onKeyDown={event => {
+              if (event.key === 'Enter') {
+                animal !== ''
+                  ? navigate('/result', {
+                      state: { name: state, animal: animal, act: how },
+                    })
+                  : null;
               }
             }}
             spellCheck={false}
