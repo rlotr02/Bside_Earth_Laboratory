@@ -235,7 +235,7 @@ const ChatPage: React.FC = () => {
           </li>
           <li>
             <UserChat
-              $width={width ? 230 : 100}
+              $width={width ? 230 : 120}
               style={{
                 display:
                   messageOrder === 2 || fixedMessage[0] ? 'flex' : 'none',
