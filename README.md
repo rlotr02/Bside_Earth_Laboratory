@@ -18,7 +18,7 @@
 <br>
 
 ## 🛠 기술 스택
-> <img src="https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white"/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/> <img src="https://img.shields.io/badge/Styled Components-DB7093?style=flat-square&logo=styled-components&logoColor=white"/>
+> <img src="https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white"/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/> <img src="https://img.shields.io/badge/Styled Components-DB7093?style=flat-square&logo=styled-components&logoColor=white"/> <img src="https://img.shields.io/badge/SSE-34A853?style=flat-square"/> 
 <br>
 
 ## 📃 Commit Message Convention
@@ -40,5 +40,4 @@
 <br>
 
 ## 🖱 동작 화면
-### 화면 구성
-
+https://github.com/rlotr02/Bside_Earth_Laboratory/assets/72345074/d85d49ed-a4ed-475f-bd71-31d6a1694f69
