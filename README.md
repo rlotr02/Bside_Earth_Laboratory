@@ -1,9 +1,4 @@
-<div align="center">
-
 ![지구 실험실](https://github.com/rlotr02/Bside_Earth_Laboratory/assets/72345074/261baf22-6eb2-4823-ba34-a0165ac2aad3)
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Frlotr02%2FBside_Earth_Laboratory&count_bg=%2397E874&title_bg=%2373C3F2&icon=github.svg&icon_color=%23FFFFFF&title=%EC%A7%80%EA%B5%AC+%EC%8B%A4%ED%97%98%EC%8B%A4&edge_flat=false)](https://hits.seeyoufarm.com)
-
-</div>
 
 # 지구 실험실
 > **지구 실험실 바로가기 :** [https://earth-laboratory.vercel.app](https://earth-laboratory.vercel.app)
@@ -14,11 +9,18 @@
 <br>
 
 ## ⏳ 개발 기간
-> **2023. 12. 14 ~ 2023. 12. 16**
+> **2023. 12. 14 ~ 2023. 12. 16 (10일)**
 <br>
 
 ## 🛠 기술 스택
-> <img src="https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white"/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/> <img src="https://img.shields.io/badge/Styled Components-DB7093?style=flat-square&logo=styled-components&logoColor=white"/> <img src="https://img.shields.io/badge/SSE-34A853?style=flat-square"/> 
+> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/> <img src="https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white"/> <img src="https://img.shields.io/badge/Styled Components-DB7093?style=flat-square&logo=styled-components&logoColor=white"/> <img src="https://img.shields.io/badge/Axios-5A29E4?style=flat-square&logo=axios&logoColor=white"/>  <img src="https://img.shields.io/badge/SSE-34A853?style=flat-square&logo=sse&logoColor=white"/> 
+<br>
+
+## 🔑 핵심 구현
+- Server-Sent Events(SSE) 프로토콜을 활용하여 생성형 AI의 답변 데이터를 실시간 Stream 방식으로 수신 및 렌더링
+- useRef와 DOM 조작을 연동하여 AI 답변 스트리밍 시 스크롤 위치를 하단으로 유지하는 실시간 자동 스크롤 기능 구현
+- Axios 및 내장 Fetch API를 활용한 REST API 연동 및 비동기 데이터 처리
+- 전체 사용자 플로우에 따른 화면 구현 및 Vercel을 활용한 프론트엔드 환경 단독 배포
 <br>
 
 ## 📃 Commit Message Convention
